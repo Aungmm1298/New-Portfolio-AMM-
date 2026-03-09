@@ -457,3 +457,111 @@
 @keyframes btn-shine {
   to { transform: translateX(200%); }
 }
+
+/* ══════════════════════════════════════════
+   RESPONSIVE UTILITIES
+══════════════════════════════════════════ */
+
+/* — Global overflow protection — */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.content {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* — Clamp all images & embeds — */
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── Mobile-first: 480px and below — */
+@media (max-width: 480px) {
+  .section-num {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+  }
+
+  h1 {
+    font-size: clamp(1.8rem, 8vw, 2.8rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  h2 {
+    font-size: clamp(1.2rem, 5vw, 1.5rem) !important;
+  }
+
+  h3 {
+    font-size: clamp(1rem, 4vw, 1.25rem) !important;
+  }
+
+  .btn-primary, .btn-outline {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.82rem;
+  }
+
+  /* Section header bar (num + title + divider line) */
+  .flex.items-center.gap-4.mb-16,
+  [style*="marginBottom: '4rem'"],
+  [style*="marginBottom: '3.5rem'"] {
+    margin-bottom: 1.75rem !important;
+  }
+
+  /* Tighten all max-w containers */
+  .max-w-7xl, .max-w-6xl, .max-w-5xl {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Skills panel padding */
+  [style*="padding: 'clamp"] {
+    padding: 1rem !important;
+  }
+}
+
+/* ── Tablet: 768px and below — */
+@media (max-width: 768px) {
+  /* Aurora orbs shrink so they don't spill */
+  .aurora-orb-1 { width: 320px; height: 320px; }
+  .aurora-orb-2 { width: 280px; height: 280px; }
+  .aurora-orb-3 { width: 240px; height: 240px; }
+  .aurora-orb-4 { width: 200px; height: 200px; }
+
+  /* Section gaps */
+  .flex.items-center.gap-4.mb-16 {
+    margin-bottom: 2rem !important;
+  }
+
+  /* Hero section */
+  #home {
+    padding: 4.5rem 1rem 3rem !important;
+  }
+
+  /* About section grid */
+  #about .grid {
+    gap: 2rem !important;
+  }
+
+  /* Skills tab row wraps */
+  #skills [style*="flexWrap"] {
+    gap: 0.4rem !important;
+  }
+
+  /* Contact grid */
+  #contact .grid {
+    gap: 1.5rem !important;
+  }
+}

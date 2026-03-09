@@ -7,7 +7,7 @@ const STATS = [
 
 export default function About() {
   return (
-    <section id="about" className="py-24 lg:py-32 px-6 scroll-reveal">
+    <section id="about" className="py-16 lg:py-32 px-4 sm:px-6 scroll-reveal" style={{ overflowX: 'hidden' }}>
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <div className="flex items-center gap-4 mb-16">
@@ -16,7 +16,7 @@ export default function About() {
           <div className="flex-1" style={{ height: '1px', background: '#1e293b' }} />
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left */}
           <div>
             <p className="text-lg leading-relaxed mb-5" style={{ color: '#000' }}>
@@ -24,7 +24,7 @@ export default function About() {
               <span style={{ color: '#000', fontWeight: 600 }}>Junior Cloud Developer</span>
               {' '}with expertise in AWS, Huawei Cloud, and modern DevOps practices.
             </p>
-            <p className="leading-relaxed mb-8" style={{ color: '#000' }}>
+            <p className="leading-relaxed mb-8" style={{ color: '#000', fontSize: '0.95rem' }}>
               I enjoy building scalable, reliable infrastructure and turning complex challenges into
               elegant cloud solutions. Currently pursuing a degree in Computer Engineering while
               stacking certifications and real-world cloud experience.

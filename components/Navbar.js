@@ -10,7 +10,6 @@ const NAV_LINKS = [
 ];
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState("#home");
   const [hovered, setHovered] = useState(null);
 
@@ -25,14 +24,7 @@ export default function Navbar() {
     return () => obs.disconnect();
   }, []);
 
-  // Prevent scroll when mobile menu is open
-  useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-  }, [menuOpen]);
+
 
   return (
     <>
@@ -149,142 +141,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* ── MOBILE NAVBAR MODULE ── */}
-      <div className="md:hidden nav-entrance" style={{
-        position: "fixed",
-        top: "16px", left: "16px", right: "16px",
-        zIndex: 50,
-        pointerEvents: "none",
-      }}>
-        {/* Mobile Island */}
-        <div style={{
-          pointerEvents: "auto",
-          background: "transparent",
-          padding: "10px 16px 10px 12px",
-          display: "flex", alignItems: "center", justifyContent: "space-between",
-        }}>
-          {/* Logo (Removed per request) */}
-          <div style={{ width: "32px", pointerEvents: "none" }} />
-
-          {/* Toggle Button */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            style={{
-              background: "rgba(0,0,0,0.05)",
-              border: "1px solid rgba(0,0,0,0.1)",
-              borderRadius: "50%",
-              width: "40px", height: "40px",
-              cursor: "pointer",
-              display: "flex", flexDirection: "column",
-              alignItems: "center", justifyContent: "center", gap: "5px",
-              transition: "background 0.3s ease",
-            }}
-            aria-label="Toggle menu"
-          >
-            <span style={{
-              display: "block", width: "18px", height: "2px",
-              background: "#0f172a", borderRadius: "2px",
-              transition: "all 0.3s ease",
-              transform: menuOpen ? "translateY(7px) rotate(45deg)" : "none",
-            }} />
-            <span style={{
-              display: "block", width: "18px", height: "2px",
-              background: "#0f172a", borderRadius: "2px",
-              transition: "all 0.3s ease",
-              opacity: menuOpen ? 0 : 1,
-            }} />
-            <span style={{
-              display: "block", width: "18px", height: "2px",
-              background: "#0f172a", borderRadius: "2px",
-              transition: "all 0.3s ease",
-              transform: menuOpen ? "translateY(-7px) rotate(-45deg)" : "none",
-            }} />
-          </button>
-        </div>
-
-        {/* Mobile Dropdown Panel */}
-        <div style={{
-          position: "absolute",
-          top: "100%", left: 0, right: 0,
-          marginTop: "12px",
-          pointerEvents: menuOpen ? "auto" : "none",
-          background: "#fff",
-          border: "1px solid rgba(0,0,0,0.1)",
-          borderRadius: "24px",
-          padding: "20px",
-          boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
-          transform: menuOpen ? "translateY(0) scale(1)" : "translateY(-10px) scale(0.95)",
-          opacity: menuOpen ? 1 : 0,
-          transition: "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
-          transformOrigin: "top center",
-        }}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-            {NAV_LINKS.map(({ href, label }, i) => {
-              const isActive = active === href;
-              return (
-              <a
-                key={href}
-                href={href}
-                onClick={() => setMenuOpen(false)}
-                style={{
-                  position: "relative",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  textDecoration: "none",
-                  padding: "16px 20px",
-                  borderRadius: "16px",
-                  color: isActive ? "#f97316" : "#0f172a",
-                  fontSize: "1.1rem",
-                  fontWeight: isActive ? 600 : 500,
-                  transition: "all 0.2s ease",
-                  transform: menuOpen ? "translateY(0)" : "translateY(10px)",
-                  opacity: menuOpen ? 1 : 0,
-                  transitionDelay: `${i * 0.05}s`,
-                }}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 40" preserveAspectRatio="none" style={{ position: "absolute", left: "20%", right: "20%", top: "5px", bottom: "5px", width: "60%", height: "calc(100% - 10px)", overflow: "visible", color: "#f97316", pointerEvents: "none", zIndex: -1 }}>
-                  <path 
-                    d="M 12,32 C 2,22 10,4 50,4 C 85,4 98,12 95,25 C 90,40 20,40 10,25 C 5,15 15,6 30,5" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="2.5" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    style={{
-                      strokeDasharray: "250",
-                      strokeDashoffset: isActive ? "0" : "250",
-                      transition: "stroke-dashoffset 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.1s",
-                    }}
-                  />
-                </svg>
-                <span style={{ position: "relative", zIndex: 1 }}>{label}</span>
-              </a>
-            )})}
-          </div>
-
-          <a
-            href="#contact"
-            onClick={() => setMenuOpen(false)}
-            style={{
-              display: "block",
-              textAlign: "center",
-              textDecoration: "none",
-              color: "#fff",
-              fontSize: "1.05rem",
-              fontWeight: 700,
-              padding: "12px",
-              margin: "16px",
-              borderRadius: "999px",
-              background: "linear-gradient(to right, #14c785, #08addb)",
-              transform: menuOpen ? "translateY(0)" : "translateY(10px)",
-              opacity: menuOpen ? 1 : 0,
-              transition: "all 0.3s ease",
-              transitionDelay: `${NAV_LINKS.length * 0.05}s`,
-            }}
-          >
-            Let's Talk
-          </a>
-        </div>
-      </div>
     </>
   );
 }

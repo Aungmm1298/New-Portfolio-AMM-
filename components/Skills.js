@@ -69,7 +69,7 @@ export default function Skills() {
   const cat = CATEGORIES.find((c) => c.id === active);
 
   return (
-    <section id="skills" className="py-24 lg:py-32 px-6 scroll-reveal reveal-right">
+    <section id="skills" className="py-16 lg:py-32 px-4 sm:px-6 scroll-reveal reveal-right" style={{ overflowX: 'hidden' }}>
       <div className="max-w-5xl mx-auto">
 
         {/* Section header */}
@@ -116,7 +116,7 @@ export default function Skills() {
             borderRadius: '1.25rem',
             background: '#070f1a',
             border: `1px solid ${cat.accent}1a`,
-            padding: '2rem',
+            padding: 'clamp(1.25rem, 4vw, 2rem)',
             boxShadow: `0 0 60px -20px ${cat.accent}18`,
           }}
         >

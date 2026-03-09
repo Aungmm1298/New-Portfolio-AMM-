@@ -40,12 +40,12 @@ export default function Home() {
   }, []);
 
   return (
-    <>
+    <div style={{ overflowX: 'hidden', position: 'relative', width: '100%' }}>
       {/* Vanta CLOUDS2 background */}
       <ParticleBackground />
 
       {/* Aurora background orbs */}
-      <div className="aurora-root" aria-hidden="true">
+      <div className="aurora-root" aria-hidden="true" style={{ overflow: 'hidden' }}>
         <div className="aurora-orb aurora-orb-1" />
         <div className="aurora-orb aurora-orb-2" />
         <div className="aurora-orb aurora-orb-3" />
@@ -97,6 +97,6 @@ export default function Home() {
         <Contact />
         <Footer />
       </div>
-    </>
+    </div>
   );
 }

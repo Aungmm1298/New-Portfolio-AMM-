@@ -48,7 +48,7 @@ export default function Certificates() {
   };
 
   return (
-    <section id="certificates" className="py-24 lg:py-32 px-6 scroll-reveal">
+    <section id="certificates" className="py-16 lg:py-32 px-4 sm:px-6 scroll-reveal" style={{ overflowX: 'hidden' }}>
       <div className="max-w-7xl mx-auto">
 
         {/* Section header */}
@@ -64,7 +64,7 @@ export default function Certificates() {
         </div>
 
         {/* Carousel viewport */}
-        <div style={{ position: 'relative', height: '440px', overflow: 'hidden' }}>
+        <div style={{ position: 'relative', height: 'clamp(300px, 55vw, 440px)', overflow: 'hidden' }}>
 
           {/* Fade masks */}
           <div style={{ position: 'absolute', inset: 0, zIndex: 2, pointerEvents: 'none', background: 'linear-gradient(to right, #030810 0%, transparent 18%, transparent 82%, #030810 100%)' }} />
@@ -77,8 +77,8 @@ export default function Certificates() {
             const faClass = c.fab ? 'fab' : 'fas';
 
             const translateX = offset * 52;     // % shift per step
-            const scale = isActive ? 1 : Math.max(0.72, 1 - Math.abs(offset) * 0.12);
-            const opacity = isActive ? 1 : Math.max(0.2, 1 - Math.abs(offset) * 0.35);
+            const scale = isActive ? 1 : Math.max(0.72, 1 - Math.abs(offset) * 0.14);
+            const opacity = isActive ? 1 : Math.max(0, 1 - Math.abs(offset) * 0.55);
             const zIndex = isActive ? 10 : 5 - Math.abs(offset);
 
             return (
@@ -89,12 +89,12 @@ export default function Certificates() {
                   position: 'absolute',
                   top: '50%',
                   left: '50%',
-                  width: '280px',
+                  width: 'min(280px, 85vw)',
                   transform: `translate(-50%, -50%) translateX(${translateX}%) scale(${scale})`,
                   opacity: isVisible ? opacity : 0,
                   zIndex,
                   transition: 'transform 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.5s, box-shadow 0.4s, border-color 0.4s',
-                  cursor: isActive ? 'pointer' : 'pointer',
+                  cursor: 'pointer',
                   borderRadius: '1.25rem',
                   overflow: 'hidden',
                   background: '#070f1c',
@@ -102,6 +102,7 @@ export default function Certificates() {
                   boxShadow: isActive
                     ? `0 0 55px ${c.accent}30, 0 20px 60px #00000070`
                     : '0 4px 20px #00000050',
+                  visibility: !isActive && Math.abs(offset) >= 2 ? 'hidden' : 'visible',
                 }}
               >
                 {/* Image */}

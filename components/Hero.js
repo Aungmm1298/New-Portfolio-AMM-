@@ -33,8 +33,8 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center relative overflow-hidden"
-      style={{ padding: '6rem 2rem 4rem' }}
+      className="min-h-screen flex items-center relative"
+      style={{ padding: '5rem 1.25rem 4rem', overflowX: 'hidden' }}
     >
       {/* Ambient glows */}
       <div
@@ -77,7 +77,7 @@ export default function Hero() {
 
             <h1
               className="tracking-tight mb-4"
-              style={{ fontSize: 'clamp(2.4rem, 5.5vw, 4.2rem)', lineHeight: 1.08, color: '#e2e8f0' }}
+              style={{ fontSize: 'clamp(1.8rem, 7vw, 4.2rem)', lineHeight: 1.08, color: '#e2e8f0', wordBreak: 'break-word' }}
             >
               Aung Myint Myat<br />
             </h1>
@@ -88,9 +88,9 @@ export default function Hero() {
                 style={{
                   color: '#e2e8f0',
                   fontFamily: 'monospace',
-                  fontSize: '1rem',
+                  fontSize: 'clamp(0.8rem, 3vw, 1rem)',
                   fontWeight: 500,
-                  minWidth: '14rem',
+                  minWidth: '10rem',
                 }}
               >
                 <span style={{ color: '#22d3ee' }}>{displayed}</span>
@@ -122,8 +122,8 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right column */}
-          <div className="relative flex justify-center lg:justify-end">
+          {/* Right column - hidden on mobile */}
+          <div className="hidden lg:flex relative justify-center lg:justify-end">
             <div className="w-full max-w-sm hero-float">
 
               {/* Terminal window */}

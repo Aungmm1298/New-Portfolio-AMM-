@@ -38,7 +38,7 @@ const SOCIALS = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 lg:py-32 px-6 scroll-reveal reveal-scale">
+    <section id="contact" className="py-16 lg:py-32 px-4 sm:px-6 scroll-reveal reveal-scale">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <div className="flex items-center gap-4 mb-16">
@@ -47,7 +47,7 @@ export default function Contact() {
           <div className="flex-1" style={{ height: '1px', background: '#1e293b' }} />
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
           {/* Left */}
           <div>
             <h3 className="text-2xl mb-4">Let&apos;s work together</h3>

@@ -17,10 +17,10 @@ const STACK = 3; // cards visible behind the front card
 // Transform for each stack depth (0 = front, STACK = furthest back)
 const depthTransform = (d) => [
   'translate(0px,   0px)  rotate(0deg)   scale(1)',
-  'translate(20px, -13px) rotate(-5deg)  scale(0.96)',
-  'translate(40px, -26px) rotate(-10deg) scale(0.92)',
-  'translate(60px, -39px) rotate(-15deg) scale(0.88)',
-][d] ?? 'translate(60px, -39px) rotate(-15deg) scale(0.88)';
+  'translate(12px, -10px) rotate(-4deg)  scale(0.96)',
+  'translate(24px, -20px) rotate(-8deg)  scale(0.92)',
+  'translate(36px, -30px) rotate(-12deg) scale(0.88)',
+][d] ?? 'translate(36px, -30px) rotate(-12deg) scale(0.88)';
 
 export default function Projects() {
   const [current, setCurrent] = useState(0);
@@ -29,7 +29,7 @@ export default function Projects() {
   const active = PROJECTS[current];
 
   return (
-    <section id="work" className="py-24 lg:py-32 px-6 scroll-reveal reveal-left">
+    <section id="work" className="py-16 lg:py-32 px-4 sm:px-6 scroll-reveal reveal-left" style={{ overflowX: 'hidden' }}>
       <div className="max-w-6xl mx-auto">
 
         {/* Section header */}
@@ -45,10 +45,10 @@ export default function Projects() {
         </div>
 
         {/* Card stack + sidebar */}
-        <div style={{ display: 'flex', gap: '5rem', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '3rem', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
 
           {/* ── Card Stack ── */}
-          <div style={{ position: 'relative', width: '320px', height: '420px', flexShrink: 0 }}>
+          <div style={{ position: 'relative', width: 'min(320px, 90vw)', height: 'min(420px, 80vw)', flexShrink: 0 }}>
             {PROJECTS.map((project, idx) => {
               const rawDepth = (idx - current + TOTAL) % TOTAL;
               const inStack  = rawDepth <= STACK;
@@ -165,7 +165,7 @@ export default function Projects() {
           </div>
 
           {/* ── Sidebar: all projects list ── */}
-          <div style={{ minWidth: '230px', maxWidth: '310px', flex: 1 }}>
+          <div style={{ minWidth: '200px', maxWidth: '310px', flex: 1, width: '100%' }}>
             <p style={{ color: '#172c3f', fontSize: '0.62rem', fontFamily: 'monospace', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.7rem' }}>
               All Projects
             </p>

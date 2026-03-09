@@ -45,7 +45,7 @@ export default function Achievements() {
   const [selected, setSelected] = useState(null);
 
   return (
-    <section id="achievements" className="py-24 lg:py-32 px-6 scroll-reveal reveal-left">
+    <section id="achievements" className="py-16 lg:py-32 px-4 sm:px-6 scroll-reveal reveal-left" style={{ overflowX: 'hidden' }}>
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <div className="flex items-center gap-4 mb-16">
