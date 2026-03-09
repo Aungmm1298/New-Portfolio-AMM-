@@ -1,78 +1,102 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { useEffect } from "react";
+import dynamic from "next/dynamic";
+const ParticleBackground = dynamic(() => import("@/components/ParticleBackground"), { ssr: false });
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Projects from "@/components/Projects";
+import Skills from "@/components/Skills";
+import Certificates from "@/components/Certificates";
+import Achievements from "@/components/Achievements";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 export default function Home() {
+  // Cursor spotlight
+  useEffect(() => {
+    const onMove = (e) => {
+      document.documentElement.style.setProperty('--mx', `${e.clientX}px`);
+      document.documentElement.style.setProperty('--my', `${e.clientY}px`);
+    };
+    window.addEventListener('mousemove', onMove);
+    return () => window.removeEventListener('mousemove', onMove);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          } else {
+            entry.target.classList.remove("visible");
+          }
+        });
+      },
+      { threshold: 0.07, rootMargin: "0px 0px -10px 0px" }
+    );
+    document.querySelectorAll(".scroll-reveal, .card-reveal").forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black`}
-    >
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the index.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      {/* Vanta CLOUDS2 background */}
+      <ParticleBackground />
+
+      {/* Aurora background orbs */}
+      <div className="aurora-root" aria-hidden="true">
+        <div className="aurora-orb aurora-orb-1" />
+        <div className="aurora-orb aurora-orb-2" />
+        <div className="aurora-orb aurora-orb-3" />
+        <div className="aurora-orb aurora-orb-4" />
+
+        {/* Cursor spotlight */}
+        <div className="cursor-spotlight" />
+
+        {/* Floating particles */}
+        <div className="particles">
+          {[
+            { left:'7%',  s:2, dur:'13s', del:'0s'   },
+            { left:'16%', s:3, dur:'19s', del:'2.1s' },
+            { left:'25%', s:2, dur:'15s', del:'4.8s' },
+            { left:'34%', s:2, dur:'22s', del:'1.4s' },
+            { left:'46%', s:3, dur:'14s', del:'6.2s' },
+            { left:'55%', s:2, dur:'18s', del:'3.5s' },
+            { left:'63%', s:2, dur:'12s', del:'8s'   },
+            { left:'72%', s:3, dur:'20s', del:'0.7s' },
+            { left:'81%', s:2, dur:'16s', del:'5.3s' },
+            { left:'90%', s:2, dur:'11s', del:'2.9s' },
+            { left:'11%', s:2, dur:'24s', del:'9.1s' },
+            { left:'42%', s:3, dur:'17s', del:'4s'   },
+          ].map((p, i) => (
+            <span key={i} className="particle" style={{
+              left: p.left, bottom: '-6px',
+              width: `${p.s}px`, height: `${p.s}px`,
+              background: i % 3 === 0
+                ? 'rgba(34,211,238,0.75)'
+                : i % 3 === 1
+                ? 'rgba(129,140,248,0.7)'
+                : 'rgba(74,222,128,0.65)',
+              animationDuration: p.dur,
+              animationDelay: p.del,
+            }} />
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs/pages/getting-started?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+        {/* Page-load scan line */}
+      </div>
+      <div className="content">
+        <Navbar />
+        <Hero />
+        <About />
+        <Projects />
+        <Skills />
+        <Achievements />
+        <Certificates />
+        <Contact />
+        <Footer />
+      </div>
+    </>
   );
 }
