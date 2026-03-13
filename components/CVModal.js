@@ -10,7 +10,7 @@ export default function CVModal({ onClose }) {
           </h3>
           <div className="flex gap-2">
             <a
-              href="/CV/My portfolio.pdf"
+              href="/CV/Resume (Aung Myint Myat).pdf"
               download="Aung_Myint_Myat_CV.pdf"
               className="px-4 py-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white rounded-lg transition flex items-center gap-2"
             >
