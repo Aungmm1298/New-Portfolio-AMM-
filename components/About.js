@@ -1,7 +1,7 @@
 const STATS = [
   { value: '8+', label: 'Certifications', icon: 'fas fa-certificate' },
   { value: '#1', label: 'Grand Prize', icon: 'fas fa-trophy' },
-  { value: 'AWS', label: 'Cloud Expert', icon: 'fab fa-aws' },
+  { value: 'AWS', label: 'AWS Certified Cloud Practitioner', icon: 'fab fa-aws' },
   { value: '∞', label: 'Curiosity', icon: 'fas fa-brain' },
 ];
 
@@ -19,12 +19,12 @@ export default function About() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left */}
           <div>
-            <p className="text-lg leading-relaxed mb-5" style={{ color: '#000' }}>
+            <p className="text-lg leading-relaxed mb-5" style={{ color: '#cbd5e1' }}>
               I&apos;m a passionate{' '}
-              <span style={{ color: '#000', fontWeight: 600 }}>Junior Cloud Developer</span>
+              <span style={{ color: '#f1f5f9', fontWeight: 600 }}>Junior Cloud Engineer</span>
               {' '}with expertise in AWS, Huawei Cloud, and modern DevOps practices.
             </p>
-            <p className="leading-relaxed mb-8" style={{ color: '#000', fontSize: '0.95rem' }}>
+            <p className="leading-relaxed mb-8" style={{ color: '#94a3b8', fontSize: '0.95rem' }}>
               I enjoy building scalable, reliable infrastructure and turning complex challenges into
               elegant cloud solutions. Currently pursuing a degree in Computer Engineering while
               stacking certifications and real-world cloud experience.
@@ -49,8 +49,8 @@ export default function About() {
                 <img src="/images/IMG_5239.jpg" alt="Profile" className="w-full h-full object-cover" />
               </div>
               <div>
-                <h3 className="text-lg" style={{ color: '#000' }}>Aung Myint Myat</h3>
-                <p className="text-sm mt-0.5" style={{ color: '#000' }}>Junior Cloud Developer · Thailand 🇹🇭</p>
+                <h3 className="text-lg" style={{ color: '#f1f5f9' }}>Aung Myint Myat</h3>
+                <p className="text-sm mt-0.5" style={{ color: '#94a3b8' }}>Junior Cloud Engineer · Thailand 🇹🇭</p>
                 <a
                   href="https://www.linkedin.com/in/aung-myint-myat-305316189/"
                   target="_blank"

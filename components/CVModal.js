@@ -6,11 +6,11 @@ export default function CVModal({ onClose }) {
         <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-purple-600 to-pink-600 p-4 flex justify-between items-center z-10">
           <h3 className="text-2xl font-display text-white flex items-center gap-2">
             <i className="fas fa-file-pdf" />
-            My Resume
+            Resume
           </h3>
           <div className="flex gap-2">
             <a
-              href="/CV/Resume (Aung Myint Myat).pdf"
+              href="/CV/Aung%20Myint%20Myat_Resume.pdf"
               download="Aung_Myint_Myat_CV.pdf"
               className="px-4 py-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white rounded-lg transition flex items-center gap-2"
             >
@@ -28,7 +28,7 @@ export default function CVModal({ onClose }) {
         </div>
         {/* PDF Viewer */}
         <div className="w-full h-full pt-16">
-          <iframe src="/CV/My portfolio.pdf" className="w-full h-full border-0" title="CV" />
+          <iframe src="/CV/Aung%20Myint%20Myat_Resume.pdf" className="w-full h-full border-0" title="CV" />
         </div>
       </div>
     </div>

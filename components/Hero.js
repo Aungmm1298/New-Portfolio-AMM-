@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import CVModal from './CVModal';
 
-const ROLES = ['Junior Cloud Developer', 'Junior Game Developer', 'Junior DevOps Engineer'];
+const ROLES = ['Junior Cloud Engineer', 'Junior Game Developer', 'Junior DevOps Engineer'];
 
 export default function Hero() {
   const [cvOpen, setCvOpen] = useState(false);
@@ -68,9 +68,9 @@ export default function Hero() {
             >
               <span
                 className="w-2 h-2 rounded-full flex-shrink-0"
-                style={{ background: '#0c0e0fff', animation: 'pulse-dot 2s ease-in-out infinite' }}
+                style={{ background: '#22d3ee', animation: 'pulse-dot 2s ease-in-out infinite' }}
               />
-              <span style={{ color: '#0d1010ff', fontFamily: 'monospace', fontSize: '0.7rem', letterSpacing: '0.12em' }}>
+              <span style={{ color: '#a5f3fc', fontFamily: 'monospace', fontSize: '0.7rem', letterSpacing: '0.12em' }}>
                 AVAILABLE FOR CLOUD PROJECTS
               </span>
             </div>
@@ -100,12 +100,12 @@ export default function Hero() {
 
             <p
               className="mb-10 leading-relaxed max-w-lg"
-              style={{ color: '#000', fontSize: '1rem', lineHeight: 1.75 }}
+              style={{ color: '#cbd5e1', fontSize: '1rem', lineHeight: 1.75 }}
             >
-              Building scalable cloud infrastructure and modern web applications.
-              Specializing in <span style={{ color: '#000', fontWeight: 600 }}>AWS</span>,{' '}
-              <span style={{ color: '#000', fontWeight: 600 }}>Huawei Cloud</span>, and{' '}
-              <span style={{ color: '#000', fontWeight: 600 }}>DevOps</span> workflows.
+              Passionate about building cloud-based solutions and web applications while expanding my skills in{' '}
+              <span style={{ color: '#f1f5f9', fontWeight: 600 }}>AWS</span>,{' '}
+              <span style={{ color: '#f1f5f9', fontWeight: 600 }}>Huawei Cloud</span>, and{' '}
+              <span style={{ color: '#f1f5f9', fontWeight: 600 }}>DevOps</span>.
             </p>
 
             <div className="flex flex-wrap gap-3">
@@ -148,7 +148,7 @@ export default function Hero() {
                   <div className="pl-4">
                     <span style={{ color: '#93c5fd' }}>&quot;role&quot;</span>
                     <span style={{ color: '#475569' }}>: </span>
-                    <span style={{ color: '#86efac' }}>&quot;Junior Cloud Developer&quot;</span>
+                    <span style={{ color: '#86efac' }}>&quot;Junior Cloud Engineer&quot;</span>
                     <span style={{ color: '#475569' }}>,</span>
                   </div>
                   <div className="pl-4">

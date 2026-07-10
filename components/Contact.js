@@ -51,7 +51,7 @@ export default function Contact() {
           {/* Left */}
           <div>
             <h3 className="text-2xl mb-4">Let&apos;s work together</h3>
-            <p className="leading-relaxed mb-10 max-w-md" style={{ color: '#050505ff' }}>
+            <p className="leading-relaxed mb-10 max-w-md" style={{ color: '#94a3b8' }}>
               Whether you have a cloud project, a collaboration opportunity, or just want to say
               hello — my inbox is always open.
             </p>

@@ -39,7 +39,7 @@ export default function Projects() {
             <h2 className="text-2xl md:text-3xl">Academic Projects</h2>
             <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, #1e293b, transparent)' }} />
           </div>
-            <p style={{ color: '#000', fontSize: '0.85rem', paddingLeft: '3.5rem', maxWidth: '440px' }}>
+            <p style={{ color: '#94a3b8', fontSize: '0.85rem', paddingLeft: '3.5rem', maxWidth: '440px' }}>
             A selection of reports, capstone work, and engineering projects from my studies.
           </p>
         </div>
@@ -123,7 +123,7 @@ export default function Projects() {
                       }}>{project.title}</h3>
 
                       {/* Description */}
-                      <p style={{ color: '#3a5a74', fontSize: '0.79rem', lineHeight: 1.8, margin: 0, flex: 1 }}>
+                      <p style={{ color: '#94a3b8', fontSize: '0.79rem', lineHeight: 1.8, margin: 0, flex: 1 }}>
                         {project.description}
                       </p>
 
@@ -166,7 +166,7 @@ export default function Projects() {
 
           {/* ── Sidebar: all projects list ── */}
           <div style={{ minWidth: '200px', maxWidth: '310px', flex: 1, width: '100%' }}>
-            <p style={{ color: '#172c3f', fontSize: '0.62rem', fontFamily: 'monospace', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.7rem' }}>
+            <p style={{ color: '#64748b', fontSize: '0.62rem', fontFamily: 'monospace', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.7rem' }}>
               All Projects
             </p>
 
@@ -192,7 +192,7 @@ export default function Projects() {
                     <i className={`fas ${p.icon}`} style={{ color: current === i ? p.accent : p.accent + '45', fontSize: '0.6rem' }} />
                   </div>
                   <span style={{
-                    color: current === i ? '#c5ddf0' : '#2a4055', fontSize: '0.77rem',
+                    color: current === i ? '#e2e8f0' : '#94a3b8', fontSize: '0.77rem',
                     fontWeight: current === i ? 600 : 400, flex: 1, transition: 'color 0.2s',
                   }}>
                     {p.title}
@@ -209,20 +209,21 @@ export default function Projects() {
               display: 'flex', alignItems: 'center', gap: '0.4rem',
               marginTop: '1.1rem', paddingTop: '0.85rem', borderTop: '1px solid #0c1d2c',
             }}>
-              <button onClick={goPrev} style={{ width: '1.9rem', height: '1.9rem', borderRadius: '0.4rem', background: '#07111c', border: '1px solid #0f2030', color: '#2a4055', cursor: 'pointer', fontSize: '0.6rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <button aria-label="Previous project" onClick={goPrev} style={{ width: '1.9rem', height: '1.9rem', borderRadius: '0.4rem', background: '#07111c', border: '1px solid #0f2030', color: '#94a3b8', cursor: 'pointer', fontSize: '0.6rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <i className="fas fa-chevron-left" />
               </button>
-              <button onClick={goNext} style={{ width: '1.9rem', height: '1.9rem', borderRadius: '0.4rem', background: '#07111c', border: '1px solid #0f2030', color: '#2a4055', cursor: 'pointer', fontSize: '0.6rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <button aria-label="Next project" onClick={goNext} style={{ width: '1.9rem', height: '1.9rem', borderRadius: '0.4rem', background: '#07111c', border: '1px solid #0f2030', color: '#94a3b8', cursor: 'pointer', fontSize: '0.6rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <i className="fas fa-chevron-right" />
               </button>
-              <span style={{ color: '#162d44', fontSize: '0.64rem', fontFamily: 'monospace', marginLeft: '0.3rem' }}>
+              <span style={{ color: '#64748b', fontSize: '0.64rem', fontFamily: 'monospace', marginLeft: '0.3rem' }}>
                 {String(current + 1).padStart(2, '0')} / {String(TOTAL).padStart(2, '0')}
               </span>
               {/* Progress dots */}
               <div style={{ display: 'flex', gap: '0.26rem', marginLeft: 'auto' }}>
                 {PROJECTS.map((p, i) => (
                   <button
-                    key={i}
+                    key={p.num}
+                    aria-label={`Show ${p.title}`}
                     onClick={() => setCurrent(i)}
                     style={{
                       width: current === i ? '1.1rem' : '0.34rem',
