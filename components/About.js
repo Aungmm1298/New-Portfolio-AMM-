@@ -26,7 +26,7 @@ export default function About() {
             </p>
             <p className="leading-relaxed mb-8" style={{ color: '#94a3b8', fontSize: '0.95rem' }}>
               I enjoy building scalable, reliable infrastructure and turning complex challenges into
-              elegant cloud solutions. Currently pursuing a degree in Computer Engineering while
+              elegant cloud solutions. Currently pursuing a degree in Digital and Communication Engineering while
               stacking certifications and real-world cloud experience.
             </p>
             <a
