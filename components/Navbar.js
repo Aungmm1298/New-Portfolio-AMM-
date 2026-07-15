@@ -103,7 +103,7 @@ export default function Navbar() {
 
   return (
     <header
-      className="hidden lg:block fixed top-4 sm:top-6 left-0 right-0 z-50 px-4 sm:px-6 nav-entrance"
+      className="hidden md:block fixed top-4 sm:top-6 left-0 right-0 z-50 px-4 sm:px-6 nav-entrance"
       style={{ transition: "transform 0.35s cubic-bezier(0.22, 1, 0.36, 1)" }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
