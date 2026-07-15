@@ -120,24 +120,24 @@ export default function Navbar() {
         }}
       >
         <div className="flex items-center justify-between h-16 px-3 sm:px-4">
-          <a href="#home" className="flex items-center gap-2 min-w-0">
+          <a href="#home" className="flex items-center gap-2 min-w-0 flex-shrink-0">
             <OrbitMark />
-            <span className="leading-tight">
+            <span className="hidden lg:block leading-tight whitespace-nowrap">
               <span className="block text-sm font-bold" style={{ color: "#f1f5f9" }}>Aung Myint Myat</span>
               <span className="block text-[0.62rem] tracking-[0.16em]" style={{ color: "#67e8f9" }}>CLOUD ENGINEER</span>
             </span>
           </a>
 
-          <nav className="flex items-center gap-1" aria-label="Primary navigation">
+          <nav className="flex items-center gap-0.5 lg:gap-1 overflow-x-auto" aria-label="Primary navigation">
             {NAV_LINKS.map(({ href, label }) => (
-              <a key={href} href={href} style={linkStyle(href)} className="rounded-full px-3 py-2 text-sm transition-colors duration-200">
+              <a key={href} href={href} style={linkStyle(href)} className="rounded-full px-2.5 lg:px-3 py-2 text-xs lg:text-sm whitespace-nowrap transition-colors duration-200">
                 {label}
               </a>
             ))}
           </nav>
 
-          <div className="flex items-center gap-2">
-            <a href="#contact" className="inline-flex btn-primary" style={{ padding: "0.6rem 1rem" }}>
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <a href="#contact" className="inline-flex btn-primary whitespace-nowrap" style={{ padding: "0.6rem 1rem" }}>
               Let&apos;s Talk <i className="fas fa-arrow-up-right-from-square text-xs" />
             </a>
           </div>
