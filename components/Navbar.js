@@ -74,7 +74,6 @@ function OrbitMark() {
 
 export default function Navbar() {
   const [active, setActive] = useState("#home");
-  const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -100,11 +99,11 @@ export default function Navbar() {
     background: active === href ? "rgba(34, 211, 238, 0.12)" : "transparent",
   });
 
-  const showSurface = isScrolled || isHovered || menuOpen;
+  const showSurface = isScrolled || isHovered;
 
   return (
     <header
-      className="fixed top-4 sm:top-6 left-0 right-0 z-50 px-4 sm:px-6 nav-entrance"
+      className="hidden lg:block fixed top-4 sm:top-6 left-0 right-0 z-50 px-4 sm:px-6 nav-entrance"
       style={{ transition: "transform 0.35s cubic-bezier(0.22, 1, 0.36, 1)" }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -121,15 +120,15 @@ export default function Navbar() {
         }}
       >
         <div className="flex items-center justify-between h-16 px-3 sm:px-4">
-          <a href="#home" className="flex items-center gap-2 min-w-0" onClick={() => setMenuOpen(false)}>
+          <a href="#home" className="flex items-center gap-2 min-w-0">
             <OrbitMark />
-            <span className="hidden sm:block leading-tight">
+            <span className="leading-tight">
               <span className="block text-sm font-bold" style={{ color: "#f1f5f9" }}>Aung Myint Myat</span>
               <span className="block text-[0.62rem] tracking-[0.16em]" style={{ color: "#67e8f9" }}>CLOUD ENGINEER</span>
             </span>
           </a>
 
-          <nav className="hidden lg:flex items-center gap-1" aria-label="Primary navigation">
+          <nav className="flex items-center gap-1" aria-label="Primary navigation">
             {NAV_LINKS.map(({ href, label }) => (
               <a key={href} href={href} style={linkStyle(href)} className="rounded-full px-3 py-2 text-sm transition-colors duration-200">
                 {label}
@@ -138,33 +137,11 @@ export default function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <a href="#contact" className="hidden sm:inline-flex btn-primary" style={{ padding: "0.6rem 1rem" }}>
+            <a href="#contact" className="inline-flex btn-primary" style={{ padding: "0.6rem 1rem" }}>
               Let&apos;s Talk <i className="fas fa-arrow-up-right-from-square text-xs" />
             </a>
-            <button
-              className="lg:hidden w-10 h-10 rounded-full"
-              type="button"
-              onClick={() => setMenuOpen(open => !open)}
-              aria-label="Toggle navigation menu"
-              aria-expanded={menuOpen}
-              aria-controls="mobile-navigation"
-              style={{ border: "1px solid rgba(103, 232, 249, 0.35)", color: "#a5f3fc", background: "rgba(7, 14, 28, 0.45)" }}
-            >
-              <i className={`fas ${menuOpen ? "fa-xmark" : "fa-bars"}`} />
-            </button>
           </div>
         </div>
-
-        {menuOpen && (
-          <nav id="mobile-navigation" className="lg:hidden grid grid-cols-2 gap-1 p-3 mt-2 rounded-2xl" aria-label="Mobile navigation" style={{ background: "rgba(7, 14, 28, 0.88)", border: "1px solid rgba(148, 163, 184, 0.16)", backdropFilter: "blur(14px)" }}>
-            {NAV_LINKS.map(({ href, label }) => (
-              <a key={href} href={href} onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-2.5 text-sm transition-colors" style={linkStyle(href)}>
-                {label}
-              </a>
-            ))}
-            <a href="#contact" onClick={() => setMenuOpen(false)} className="sm:hidden col-span-2 btn-primary justify-center mt-1">Let&apos;s Talk</a>
-          </nav>
-        )}
       </div>
     </header>
   );
